@@ -7,6 +7,7 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+  color: red;
 `;
 
 export function ErrorMessage({ error }: { error: Error }) {

@@ -1,12 +1,19 @@
 import { useParams } from "react-router";
-import { Ticket } from "../../backend";
 import { ErrorMessage } from "../List/ErrorMessage";
 import { useTicket } from "./UseTicket";
-import {Box} from "@mui/material";
+import { TicketForm } from "./TicketForm";
+import styled from "@emotion/styled";
+import { Ticket } from "../../backend";
+import React from "react";
+import { FormSkeleton } from "./FormSkeleton";
+import { TicketFormContainer } from "./TicketFormContainer";
 
-function TicketForm({ ticket }: { ticket: Partial<Ticket> }) {
-  return <Box sx={{width: '100%'}}>{JSON.stringify(ticket)}</Box>;
-}
+const DetailGridContainer = styled.div`
+  flex: 1 1 auto;
+  width: 50%;
+  min-width: 375px;
+  border-left: thin solid lightgray;
+`;
 
 export function TicketDetail() {
   const params = useParams<{ id: string }>();
@@ -16,11 +23,17 @@ export function TicketDetail() {
     return <ErrorMessage error={error} />;
   }
 
-  return ticket ? (
-    <TicketForm ticket={ticket} />
-  ) : isLoading ? (
-    <div>Loading...</div>
-  ) : (
-    <ErrorMessage error={error as Error} />
+  return (
+    <DetailGridContainer>
+      <TicketFormContainer>
+        {ticket ? (
+          <TicketForm ticket={ticket as Ticket} key={JSON.stringify(ticket)} />
+        ) : isLoading ? (
+          <FormSkeleton />
+        ) : (
+          <ErrorMessage error={error as Error} />
+        )}
+      </TicketFormContainer>
+    </DetailGridContainer>
   );
 }

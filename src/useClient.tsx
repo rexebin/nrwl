@@ -17,21 +17,21 @@ export function useTicketsClient() {
 
   const getTicket = useCallback(
     async function get(id: number): Promise<Ticket> {
-      return await firstValueFrom(backend.ticket(id));
+      return { ...(await firstValueFrom(backend.ticket(id))) };
     },
     [backend]
   );
 
   const getTickets = useCallback(
     async function get(): Promise<Ticket[]> {
-      return await firstValueFrom(backend.tickets());
+      return [...(await firstValueFrom(backend.tickets()))];
     },
     [backend]
   );
 
   const patch = useCallback(
     async function patch(data: Ticket): Promise<Ticket> {
-      return await firstValueFrom(backend.newTicket(data));
+      return await firstValueFrom(backend.saveTicket(data));
     },
     [backend]
   );

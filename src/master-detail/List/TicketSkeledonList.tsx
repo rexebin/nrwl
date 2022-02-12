@@ -1,12 +1,20 @@
-import { Card, CardContent, Grid, Skeleton, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Grid,
+  List,
+  ListItem,
+  Skeleton,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
 export function TicketSkeletonList() {
   return (
-    <Grid container spacing={2}>
+    <List sx={{ width: "100%" }}>
       {[1, 2, 3].map((i) => (
-        <Grid item xs={12} key={i}>
-          <Card>
+        <ListItem key={i}>
+          <Card sx={{ width: "100%" }}>
             <CardContent>
               <Typography variant="h2">
                 <Skeleton />
@@ -21,8 +29,8 @@ export function TicketSkeletonList() {
               </Grid>
             </CardContent>
           </Card>
-        </Grid>
+        </ListItem>
       ))}
-    </Grid>
+    </List>
   );
 }
