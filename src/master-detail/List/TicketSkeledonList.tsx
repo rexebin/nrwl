@@ -5,7 +5,7 @@ export function TicketSkeletonList() {
   return (
     <Grid container spacing={2}>
       {[1, 2, 3].map((i) => (
-        <Grid item xs={12}>
+        <Grid item xs={12} key={i}>
           <Card>
             <CardContent>
               <Typography variant="h2">

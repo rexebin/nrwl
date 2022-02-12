@@ -9,7 +9,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { useNavigate } from "react-router";
-import { MdEdit } from "react-icons/all";
+import { MdEdit } from "react-icons/md";
 
 interface TicketProps {
   ticket: Ticket;

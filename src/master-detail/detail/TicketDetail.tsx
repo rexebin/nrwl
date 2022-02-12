@@ -2,9 +2,10 @@ import { useParams } from "react-router";
 import { Ticket } from "../../backend";
 import { ErrorMessage } from "../List/ErrorMessage";
 import { useTicket } from "./UseTicket";
+import {Box} from "@mui/material";
 
 function TicketForm({ ticket }: { ticket: Partial<Ticket> }) {
-  return <div>{JSON.stringify(ticket)}</div>;
+  return <Box sx={{width: '100%'}}>{JSON.stringify(ticket)}</Box>;
 }
 
 export function TicketDetail() {

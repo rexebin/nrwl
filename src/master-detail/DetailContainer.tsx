@@ -4,8 +4,9 @@ import styled from "@emotion/styled";
 
 const DetailGridContainer = styled.div`
   flex: 1 1 auto;
-  width: 55%;
+  width: 50%;
   min-width: 375px;
+  border-left: thin solid lightgray;
 `;
 
 export function DetailContainer({ children }: PropsWithChildren<unknown>) {
