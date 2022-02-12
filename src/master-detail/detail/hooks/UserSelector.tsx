@@ -1,6 +1,6 @@
-import { HfAutoComplete } from "../../components/HfAutoComplete";
+import { HfAutoComplete } from "../../../components/HfAutoComplete";
 import { UseFormReturn } from "react-hook-form";
-import { Ticket } from "../../backend";
+import { Ticket } from "../../../backend";
 import { useEffect, useState } from "react";
 import { useUsers } from "./UseUsers";
 import { useUserIdNameDict } from "./UseUserIdNameDict";

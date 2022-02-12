@@ -1,4 +1,4 @@
-import { useTicketsClient } from "../../useClient";
+import { useTicketsClient } from "../../../useClient";
 import { useQuery } from "react-query";
 
 export function useTicket(id?: string) {

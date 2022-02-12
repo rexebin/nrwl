@@ -1,6 +1,6 @@
-import { useTicketsClient } from "../../useClient";
+import { useTicketsClient } from "../../../useClient";
 import { useMutation, useQueryClient } from "react-query";
-import { Ticket } from "../../backend";
+import { Ticket } from "../../../backend";
 
 export function useSaveTicket() {
   const { post, patch } = useTicketsClient();

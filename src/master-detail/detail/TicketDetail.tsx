@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
-import { ErrorMessage } from "../List/ErrorMessage";
-import { useTicket } from "./UseTicket";
+import { ErrorMessage } from "../../components/ErrorMessage";
+import { useTicket } from "./hooks/UseTicket";
 import { TicketForm } from "./TicketForm";
 import styled from "@emotion/styled";
 import { Ticket } from "../../backend";

@@ -3,10 +3,10 @@ import { Container, Grid } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { HfTextField } from "../../components/HfTextField";
 import { HfSwitch } from "../../components/HfSwitch";
-import { UserSelector } from "./UserSelector";
+import { UserSelector } from "./hooks/UserSelector";
 import { FormActionBar } from "./FormActionBar";
-import { useSaveTicket } from "./UseSaveTicket";
-import { ErrorMessage } from "../List/ErrorMessage";
+import { useSaveTicket } from "./hooks/UseSaveTicket";
+import { ErrorMessage } from "../../components/ErrorMessage";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
@@ -24,7 +24,7 @@ export function TicketForm({ ticket }: { ticket: Partial<Ticket> }) {
     if (isSuccess && data?.id) {
       navigate(`/tickets/${data.id}`);
     }
-  }, [isSuccess, data]);
+  }, [isSuccess, data, navigate]);
 
   const {
     handleSubmit,

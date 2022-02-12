@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { useTicketsClient } from "../../useClient";
+import { useTicketsClient } from "../../../useClient";
 
 export function useTickets() {
   const { getTickets } = useTicketsClient();

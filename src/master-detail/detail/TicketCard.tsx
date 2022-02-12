@@ -4,7 +4,7 @@ import { Box, Chip, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import { selectedBackground } from "../../theme";
-import { useUserIdNameDict } from "./UseUserIdNameDict";
+import { useUserIdNameDict } from "./hooks/UseUserIdNameDict";
 
 interface TicketProps {
   ticket: Ticket;

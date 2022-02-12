@@ -1,9 +1,9 @@
 import { epicTitleHeight, MasterDetailTitleBar } from "./MasterDetailTitleBar";
 import styled from "@emotion/styled";
-import { TicketList } from "./List/TicketList";
+import { TicketList } from "./list/TicketList";
 
 import { Outlet } from "react-router-dom";
-import { AddTicketButton } from "./AddTicketButton";
+import { AddTicketButton } from "./actions/AddTicketButton";
 import React from "react";
 
 export const MasterDetailContentContainer = styled.div`
