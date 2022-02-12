@@ -19,6 +19,9 @@ export type Ticket = {
 };
 
 function randomDelay() {
+  if (process.env.NODE_ENV === "test") {
+    return 0;
+  }
   return Math.random() * 4000;
 }
 
@@ -26,7 +29,7 @@ export class BackendService {
   private storedTickets: Ticket[] = [
     {
       id: 0,
-      description: "Install a monitor arm 0",
+      description: "Install a monitor arm",
       assigneeId: 111,
       completed: false,
     },
