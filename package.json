@@ -26,7 +26,29 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "react-hooks/rules-of-hooks": "error",
+          "react-hooks/exhaustive-deps": "error",
+          "react/no-string-refs": 2,
+          "@typescript-eslint/no-empty-function": [
+            "error",
+            {
+              "allow": [
+                "arrowFunctions"
+              ]
+            }
+          ]
+        }
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -38,6 +60,16 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
     ]
   },
   "devDependencies": {
@@ -53,6 +85,8 @@
     "cross-env": "^7.0.3",
     "start-server-and-test": "^1.14.0",
     "cypress": "^9.5.0",
-    "eslint-plugin-cypress": "^2.12.1"
+    "eslint-plugin-cypress": "^2.12.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^9.2.1"
   }
 }
