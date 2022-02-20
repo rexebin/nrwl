@@ -17,7 +17,6 @@ export function useSaveTicket() {
     },
     {
       onSuccess: async (_) => {
-        console.log("success");
         await queryClient.invalidateQueries({
           predicate: (query) =>
             JSON.stringify(query.queryKey).indexOf("ticket") !== -1,

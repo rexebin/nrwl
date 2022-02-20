@@ -16,7 +16,7 @@ describe("App", () => {
   });
 
   it("should create new ticket", async function () {
-    const { getByText, findByLabelText, findByText } = render(
+    const { getByText, findByLabelText, findByText, debug } = render(
       <ContextWrapperForTests>
         <App />
       </ContextWrapperForTests>
@@ -25,10 +25,12 @@ describe("App", () => {
     expect(button).toBeInTheDocument();
     userEvent.click(button);
     const description = await findByLabelText(/description/i);
+    userEvent.clear(description);
     userEvent.type(description, "test1");
     const saveButton = await findByText(/save/i);
     userEvent.click(saveButton);
-    const waitTicket = await findByText(/test1/i);
+    const waitTicket = await findByText(/test1/i, { ignore: "textarea" });
+
     expect(waitTicket).toBeInTheDocument();
   });
 
@@ -38,6 +40,7 @@ describe("App", () => {
         <App />
       </ContextWrapperForTests>
     );
+
     const item = await findByText("Install a monitor arm");
     userEvent.click(item);
     const description = await findByLabelText(/description/i);
@@ -49,7 +52,10 @@ describe("App", () => {
     userEvent.click(complete);
     const saveButton = await findByText(/save/i);
     userEvent.click(saveButton);
-    const waitTicket = await findByText(installAMonitorArmAndMountAMonitor);
+
+    const waitTicket = await findByText(installAMonitorArmAndMountAMonitor, {
+      ignore: "textarea",
+    });
     expect(waitTicket).toBeInTheDocument();
   });
 });

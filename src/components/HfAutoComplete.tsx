@@ -29,7 +29,6 @@ export function HfAutoComplete({
       value={value ?? null}
       disableClearable={required}
       onChange={(_, data) => {
-        console.log(data);
         onChange(data);
       }}
       renderInput={

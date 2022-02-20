@@ -11,7 +11,7 @@ import { TicketFormContainer } from "./TicketFormContainer";
 const DetailGridContainer = styled.div`
   flex: 1 1 auto;
   width: 50%;
-  min-width: 375px;
+  min-width: 50%;
   border-left: thin solid lightgray;
 `;
 
