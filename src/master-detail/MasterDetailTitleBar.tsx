@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 
 export const epicTitleHeight = "60px";
 
-export const TicketsTitleBar = styled.div`
+const TicketsTitleBar = styled.div`
   height: ${epicTitleHeight};
   padding: 0 20px 0 20px;
   display: flex;
@@ -13,7 +13,7 @@ export const TicketsTitleBar = styled.div`
   border-bottom: solid thin #babfc7;
 `;
 
-export const Spacer = styled.div`
+const Spacer = styled.div`
   display: flex;
   flex-grow: 1;
 `;
