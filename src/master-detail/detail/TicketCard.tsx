@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import { selectedBackground } from "../../theme";
 import { useUserIdNameDict } from "./hooks/UseUserIdNameDict";
+import { LoadingSpinner } from "../../components/LoadingSpinner";
+import { useToggleComplete } from "./hooks/UseToggleComplete";
 
 interface TicketProps {
   ticket: Ticket;
@@ -34,6 +36,14 @@ export function TicketCard({
       return userLabels[ticket.assigneeId];
     }
   }, [ticket.assigneeId, userLabels]);
+
+  const { mutate, isLoading: isToggleCompleteLoading } = useToggleComplete();
+
+  function toggleCompleted(ticket: Ticket, event: MouseEvent) {
+    event.stopPropagation();
+    mutate(ticket.id);
+  }
+
   return (
     <SelectableCard onClick={() => handleClick()}>
       <Typography variant="h5">{ticket.description}</Typography>
@@ -42,7 +52,11 @@ export function TicketCard({
           <Chip
             label={`Status: ${ticket.completed ? "Completed" : "Pending"}`}
             color={"primary"}
+            onClick={(e) => toggleCompleted(ticket, e as unknown as MouseEvent)}
           />
+          {isToggleCompleteLoading !== undefined ? (
+            <LoadingSpinner isLoading={isToggleCompleteLoading} />
+          ) : null}
         </Grid>
         <Grid item>
           <Chip

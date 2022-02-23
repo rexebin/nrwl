@@ -168,7 +168,7 @@ export class BackendService {
     );
   }
 
-  toggleStatus(ticketId: number) {
+  toggleComplete(ticketId: number): Observable<Ticket> {
     const index = this.findTicketIndexById(+ticketId);
     if (index === -1) {
       throw new Error("ticket not found");
@@ -176,9 +176,10 @@ export class BackendService {
 
     return of(index).pipe(
       delay(randomDelay()),
-      tap((index: number) => {
+      map((index: number) => {
         const ticket = this.storedTickets[index];
         ticket.completed = !ticket.completed;
+        return ticket;
       })
     );
   }

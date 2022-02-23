@@ -29,6 +29,13 @@ export function useTicketsClient() {
     [backend]
   );
 
+  const toggleComplete = useCallback(
+    async function toggleComplete(id: number): Promise<Ticket> {
+      return { ...(await firstValueFrom(backend.toggleComplete(id))) };
+    },
+    [backend]
+  );
+
   const patch = useCallback(
     async function patch(data: Ticket): Promise<Ticket> {
       return await firstValueFrom(backend.saveTicket(data));
@@ -36,5 +43,5 @@ export function useTicketsClient() {
     [backend]
   );
 
-  return { post, getTicket, getTickets, patch };
+  return { post, getTicket, getTickets, patch, toggleComplete };
 }
